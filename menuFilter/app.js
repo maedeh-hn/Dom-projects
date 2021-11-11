@@ -82,13 +82,28 @@ const menu=[
 ]
 
 const sectionCenter=document.querySelector(".section-center");
-const filterBtns=document.querySelectorAll(".filter-btn")
+
+const btnContainer=document.querySelector(".btn-container")
 
 window.addEventListener("DOMContentLoaded",function(){//وقتی صفحه لود شد روی آرایه لوپ بزند
  displayMenuItem(menu)
-})
+ const categories=menu.reduce(function(values,item){
+    if(!values.includes(item.category)){// اگر در آرایه مقدار اولیه شامل 
+                                        //item.category
+                                        //نبود 
+        values.push(item.category)
+    }
+    return values // در آخر لیست تمام کتگوری را برمیگرداند
+},["all"])
 
-
+const categoryBtns=categories.map(function(category){
+    return `
+    <button class="filter-btn" data-id=${category}>
+    ${category}
+    </button>`
+}).join("")
+btnContainer.innerHTML=categoryBtns
+const filterBtns=document.querySelectorAll(".filter-btn")
 filterBtns.forEach(function(btn){
     btn.addEventListener("click",function(e){
          console.log(e.currentTarget.dataset.id)//در اینجا نام دیتا "آی دی" هست که در کد اچ تی ام ال نام گذاری شده
@@ -106,6 +121,13 @@ filterBtns.forEach(function(btn){
          }
     })
 })
+})
+
+
+
+
+
+
 
 function displayMenuItem(menuItems){
     let displayMenu=menuItems.map(function(item){
