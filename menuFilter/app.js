@@ -103,7 +103,9 @@ const categoryBtns=categories.map(function(category){
     </button>`
 }).join("")
 btnContainer.innerHTML=categoryBtns
-const filterBtns=document.querySelectorAll(".filter-btn")
+
+
+const filterBtns=document.querySelectorAll(".filter-btn") 
 filterBtns.forEach(function(btn){
     btn.addEventListener("click",function(e){
          console.log(e.currentTarget.dataset.id)//در اینجا نام دیتا "آی دی" هست که در کد اچ تی ام ال نام گذاری شده
