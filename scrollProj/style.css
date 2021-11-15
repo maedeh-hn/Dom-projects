@@ -1,0 +1,159 @@
+html{
+    scroll-behavior: smooth;
+}
+:root{
+
+    /* --ff-primary:"Roboto",sans-serif;
+    --ff-secondary:"Open Sans",sans-serif; */
+    --transition:all 0.3s linear;
+    --spacing:0.1rem;
+    --radius:0.25rem;
+    --light-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --dark-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    --max-width:1170px;
+    --fixed-width:620px;
+}
+
+*,
+::after,
+::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: wheat;
+    color: grey;
+    line-height: 1.5;
+    font-size: 0.875rem;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4{
+    letter-spacing: var(--spacing);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+}
+/* /////////// */
+.container{
+    height: 300px;
+    text-align: center;
+    margin-top: 20px;
+}
+.nav-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.nav-toggle{
+    font-size: 1.5rem;
+    color: blue;
+    background-color: transparent;
+    border-color: transparent;
+    transition: var(--transition);
+}
+.nav-toggle:hover{
+    color: black;
+}
+.logo{
+    height: 50px;
+}
+.link-container{
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+
+}
+
+
+
+/* .show-links{
+    height: 200px;
+} */
+.links a{
+    color: black;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    display: block;
+    transition: var(--transition);
+    font-weight: bold;
+    
+}
+.fixed-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: var(--light-shadow);
+
+}
+.title{
+  height: 300px;
+}
+.top-link{
+    font-size: 1.25rem;
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    background: violet;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius);
+    color: rgb(228, 33, 114);
+    animation: bounce 2s ease-in-out infinite !important;
+    visibility: hidden;
+    z-index: -100;
+}
+.show-link{
+    visibility: visible;
+    z-index: 100;
+}
+
+@media screen and (max-width:800px){
+    .nav-center{
+        background-color: white;
+    }
+
+}
+
+@media screen and (min-width:800px){
+    .nav-center{
+        max-width: 1170px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+       
+    }
+    .links{
+        display: flex;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+    .nav-toggle{
+        display: none;
+    }
+    .link-container{
+        height: auto;
+        display: flex ;
+    }
+    .links a{
+        padding: 0;
+        margin: 0 0.5rem;
+    }
+
+}
